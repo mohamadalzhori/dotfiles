@@ -7,7 +7,7 @@ BROWSER="brave-browser"
 cd "$(dirname "$0")"
 
 # Generate a custom list of choices (Google, YouTube, and Torn)
-options="Apps\nGo\nYou\nTorn\nChat\nGitHub\nWassap\nKeep\nMusic\nLogout\nShutdown\nReboot\nConfig"
+options="Apps\nGo\nYou\nTorn\nChat\nGitHub\nWassap\nKeep\nMusic\nLogout\nShutdown\nReboot\nConfig\nGem"
 
 config_files="/home/zhori/.local/bin/executor.sh\n/home/zhori/.config/i3/config"  
 
@@ -44,7 +44,7 @@ case "$selected_option" in
         ;;	
     Logout)
 	# Logout using Qtile's exit command
-        qtile cmd-obj -o cmd -f shutdown
+	i3-msg exit
 	;;
     Shutdown)
         # Shutdown the system
@@ -63,6 +63,9 @@ case "$selected_option" in
         ;;
     Keep)
     	xdg-open "https://keep.google.com"	    
+	;;
+     Gem)
+	xdg-open "https://gemini.google.com/app"
 	;;
     Config)
 	selected_file=$(echo -e "$config_files" | rofi -dmenu -mesg ">>> Tab = Autocomplete" -i -p "run: ")
