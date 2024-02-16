@@ -7,7 +7,7 @@ BROWSER="brave-browser"
 cd "$(dirname "$0")"
 
 # Generate a custom list of choices (Google, YouTube, and Torn)
-options="Apps\nGo\nYou\nTorn\nChat\nGitHub\nWassap\nKeep\nMusic\nLogout\nShutdown\nReboot\nConfig\nGem\nbb\ntr"
+options="Apps\nGo\nYou\nMega\nTorn\nChat\nGitHub\nWassap\nKeep\nMusic\nLogout\nShutdown\nReboot\nConfig\nGem\nbb\ntr\nfiles"
 
 config_files="/home/zhori/.local/bin/executor.sh\n/home/zhori/.config/i3/config"  
 
@@ -26,6 +26,12 @@ case "$selected_option" in
         search_term=$(rofi -dmenu -mesg ">>> Tab = Autocomplete" -i -p "search: ")
         surfraw -browser="$BROWSER" youtube $search_term
         ;;
+   files)
+  	alacritty -e ranger /home/zhori	
+	;; 
+   Mega)
+  	alacritty -e ranger /home/zhori/Mega	
+	;;
     Torn)
         # Open the website www.torn.com
         xdg-open "https://www.torn.com"
