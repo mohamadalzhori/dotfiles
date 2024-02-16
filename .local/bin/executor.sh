@@ -7,7 +7,7 @@ BROWSER="brave-browser"
 cd "$(dirname "$0")"
 
 # Generate a custom list of choices (Google, YouTube, and Torn)
-options="Apps\nGo\nYou\nTorn\nChat\nGitHub\nWassap\nKeep\nMusic\nLogout\nShutdown\nReboot\nConfig\nGem"
+options="Apps\nGo\nYou\nTorn\nChat\nGitHub\nWassap\nKeep\nMusic\nLogout\nShutdown\nReboot\nConfig\nGem\nbb\ntr"
 
 config_files="/home/zhori/.local/bin/executor.sh\n/home/zhori/.config/i3/config"  
 
@@ -30,6 +30,10 @@ case "$selected_option" in
         # Open the website www.torn.com
         xdg-open "https://www.torn.com"
         ;;
+      tr)
+	search_term=$(rofi -dmenu -mesg ">>> Tab = Autocomplete" -i -p "run: ")
+	xdg-open "https://translate.google.com/?sl=en&tl=ar&text=$search_term%0A&op=translate"
+	;;
     Chat)
         # Open the website www.torn.com
         xdg-open "https://chat.openai.com/"
@@ -67,6 +71,9 @@ case "$selected_option" in
      Gem)
 	xdg-open "https://gemini.google.com/app"
 	;;
+      bb)
+	xdg-open "https://elearn.lau.edu.lb/ultra/stream"
+	;;	
     Config)
 	selected_file=$(echo -e "$config_files" | rofi -dmenu -mesg ">>> Tab = Autocomplete" -i -p "run: ")
 	
