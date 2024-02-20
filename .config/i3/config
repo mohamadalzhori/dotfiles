@@ -40,7 +40,16 @@ default_floating_border pixel 1
 for_window [class="^.*"] border pixel 1
 
 # Redshift with fix temperature
-exec --no-startup-id redshift -O 5000
+exec_always --no-startup-id redshift -O 5000
+
+# Wallpaper
+#exec_always feh --bg-fill ~/Pictures/fact.png
+
+exec_always feh --bg-fill --randomize ~/Pictures/wallpapers
+
+# Clipboard manager
+
+exec --no-startup-id copyq
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status

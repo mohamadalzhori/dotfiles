@@ -7,7 +7,7 @@ BROWSER="brave-browser"
 cd "$(dirname "$0")"
 
 # Generate a custom list of choices (Google, YouTube, and Torn)
-options="Apps\nGo\nYou\nMega\nTorn\nChat\nGitHub\nWassap\nKeep\nMusic\nLogout\nShutdown\nReboot\nConfig\nGem\nbb\ntr\nfiles"
+options="Obsidian\nApps\nGo\nYou\nMega\nTorn\nChat\nGitHub\nWassap\nKeep\nMusic\nLogout\nShutdown\nReboot\nConfig\nGem\nbb\ntr\nfiles\nTodoist"
 
 config_files="/home/zhori/.local/bin/executor.sh\n/home/zhori/.config/i3/config"  
 
@@ -29,12 +29,18 @@ case "$selected_option" in
    files)
   	alacritty -e ranger /home/zhori	
 	;; 
+Obsidian)
+	obsidian
+	;;
    Mega)
   	alacritty -e ranger /home/zhori/Mega	
 	;;
     Torn)
         # Open the website www.torn.com
         xdg-open "https://www.torn.com"
+        ;;
+Todoist)
+        xdg-open "https://app.todoist.com/app/project/inbox-2304237619"
         ;;
       tr)
 	search_term=$(rofi -dmenu -mesg ">>> Tab = Autocomplete" -i -p "run: ")
