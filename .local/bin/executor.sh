@@ -7,7 +7,7 @@ BROWSER="brave-browser"
 cd "$(dirname "$0")"
 
 # Generate a custom list of choices (Google, YouTube, and Torn)
-options="Obsidian\nApps\nGo\nYou\nMega\nTorn\nChat\nGitHub\nWassap\nKeep\nMusic\nLogout\nShutdown\nReboot\nConfig\nGem\nbb\ntr\nfiles\nTodoist"
+options="Apps\nObsidian\nGo\nYou\nMega\nTorn\nChat\nGitHub\nWassap\nKeep\nMusic\nLogout\nShutdown\nReboot\nConfig\nGem\nbb\ntr\nfiles\nTodoist"
 
 config_files="/home/zhori/.local/bin/executor.sh\n/home/zhori/.config/i3/config"  
 
