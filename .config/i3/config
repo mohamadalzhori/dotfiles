@@ -26,12 +26,12 @@ exec_always feh --bg-fill --randomize ~/Pictures/wallpapers
 exec --no-startup-id /snap/bin/todoist
 
 # use xprop to get class and instance
-assign [class="Todoist"] 10
-assign [class="BlueMail" instance="bluemail" title="BlueMail" window_role="browser-window"] 10
+assign [class="Todoist"] $ws10
+assign [class="BlueMail" instance="bluemail" title="BlueMail" window_role="browser-window"] $ws10 
 
-assign [class="obsidian" instance="obsidian"] 2  
+assign [class="obsidian" instance="obsidian"] $ws2
 
-
+assign [class="brave-browser" instance="Brave-browser"] $ws1
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status

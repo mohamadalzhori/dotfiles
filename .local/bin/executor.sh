@@ -7,7 +7,7 @@ BROWSER="brave-browser"
 cd "$(dirname "$0")"
 
 # Generate a custom list of choices (Google, YouTube, and Torn)
-options="Apps\nObsidian\nGo\nYou\nMega\nTorn\nChat\nGitHub\nWassap\nKeep\nMusic\nLogout\nShutdown\nReboot\nConfig\nGem\nbb\ntr\nfiles\nTodoist"
+options="Apps\nObsidian\nGo\nYou\nMega\nTorn\nChat\nGitHub\nWassap\nKeep\nMusic\nLogout\nShutdown\nReboot\nConfig\nGem\nbb\ntr\nfiles\nTodoist\ndocs\nlinkedin"
 
 config_files="/home/zhori/.local/bin/executor.sh\n/home/zhori/.config/i3/config"  
 
@@ -42,6 +42,13 @@ Obsidian)
 Todoist)
         xdg-open "https://app.todoist.com/app/project/inbox-2304237619"
         ;;
+docs)
+        xdg-open "https://docs.google.com/document/u/0/?ec=asw-docs-hero-goto"
+        ;;
+linkedin)
+        xdg-open "https://www.linkedin.com/in/mohamadalzhori/"
+        ;;
+ 
       tr)
 	search_term=$(rofi -dmenu -mesg ">>> Tab = Autocomplete" -i -p "run: ")
 	xdg-open "https://translate.google.com/?sl=en&tl=ar&text=$search_term%0A&op=translate"

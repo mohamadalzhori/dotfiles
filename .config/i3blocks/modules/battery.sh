@@ -27,9 +27,13 @@ then
         then
             # Battery very low. Red color.
             echo "#FA1E44"
+	    
+	    # Notify for low battery
+            notify-send -u critical "Low Battery" "Battery level is below 15%!"
+
         else
             # Battery not charging but at decent level. Green color.
-            echo "#007872"
+            echo "#0af019"
         fi
     fi
 fi

@@ -7,6 +7,7 @@ from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+from google_auth_oauthlib.flow import InstalledAppFlow
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
@@ -22,11 +23,11 @@ def main():
 
     # Get the script's directory, ensuring cross-platform compatibility
     script_dir = os.path.dirname(os.path.realpath(__file__))
-
+    
     # Construct absolute paths for token and credentials files
     token_path = os.path.join(script_dir, 'token.json')
     credentials_path = os.path.join(script_dir, 'credentials.json')
-
+    
     # The file token.json stores the user's access and refresh tokens
     creds = None
     if os.path.exists(token_path):
