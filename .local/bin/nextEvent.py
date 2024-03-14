@@ -33,18 +33,18 @@ def main():
     if os.path.exists(token_path):
         creds = Credentials.from_authorized_user_file(token_path, SCOPES)
 
-    # If there are no (valid) credentials available, let the user log in
+    # check if creds is present and if it is valid
     if not creds or not creds.valid:
+        # if creds is present but it not valid so it expired -> try to refresh
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                credentials_path, SCOPES)
-            creds = flow.run_local_server(port=0)
+                print("Token has expired or been revoked. Please re-authenticate.")
+                flow = InstalledAppFlow.from_client_secrets_file(
+                    credentials_path, SCOPES)
+                creds = flow.run_local_server(port=0)
 
-        # Save the credentials for the next run
-        with open(token_path, 'w') as token:
-            token.write(creds.to_json())
+                # Save the credentials for the next run
+                with open(token_path, 'w') as token:
+                    token.write(creds.to_json())
 
     try:
         service = build('calendar', 'v3', credentials=creds)
