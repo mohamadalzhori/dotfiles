@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 import datetime
 import os.path
 import pytz
@@ -32,9 +30,10 @@ def main():
     creds = None
     if os.path.exists(token_path):
         creds = Credentials.from_authorized_user_file(token_path, SCOPES)
-
+    
     # check if creds is present and if it is valid
-    if not creds or not creds.valid:
+    # if not creds or not creds.valid:
+    if not creds:
         # if creds is present but it not valid so it expired -> try to refresh
         if creds and creds.expired and creds.refresh_token:
                 print("Token has expired or been revoked. Please re-authenticate.")
